@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/gistsFragment">
+
+    <fragment
+        android:id="@+id/gistsFragment"
+        android:name="com.rithikjain.projectgists.ui.gists.GistsFragment"
+        android:label="fragment_gists"
+        tools:layout="@layout/fragment_gists" >
+        <action
+            android:id="@+id/action_gistsFragment_to_codeFragment"
+            app:destination="@id/codeFragment"
+            app:enterAnim="@anim/enter_from_right"
+            app:exitAnim="@anim/exit_to_left"
+            app:popEnterAnim="@anim/enter_from_left"
+            app:popExitAnim="@anim/exit_to_right" />
+        <action
+            android:id="@+id/action_gistsFragment_to_addGistFragment"
+            app:destination="@id/addGistFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
+        <action
+            android:id="@+id/action_gistsFragment_to_profileFragment"
+            app:destination="@id/profileFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
+    </fragment>
+    <fragment
+        android:id="@+id/codeFragment"
+        android:name="com.rithikjain.projectgists.ui.code.CodeFragment"
+        android:label="fragment_code"
+        tools:layout="@layout/fragment_code" >
+        <argument
+            android:name="codeString"
+            app:argType="string"
+            android:defaultValue=" " />
+        <argument
+            android:name="fileName"
+            app:argType="string"
+            android:defaultValue=" " />
+        <action
+            android:id="@+id/action_codeFragment_to_addGistFragment"
+            app:destination="@id/addGistFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
+        <argument
+            android:name="canEdit"
+            app:argType="boolean"
+            android:defaultValue="false" />
+        <action
+            android:id="@+id/action_codeFragment_to_editGistFragment"
+            app:destination="@id/editGistFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
+        <argument
+            android:name="description"
+            app:argType="string"
+            android:defaultValue=" " />
+        <argument
+            android:name="gistID"
+            app:argType="string"
+            android:defaultValue=" " />
+    </fragment>
+    <fragment
+        android:id="@+id/addGistFragment"
+        android:name="com.rithikjain.projectgists.ui.gists.AddGistFragment"
+        android:label="fragment_add_gist"
+        tools:layout="@layout/fragment_add_gist" >
+        <action
+            android:id="@+id/action_addGistFragment_to_codeFragment"
+            app:destination="@id/codeFragment"
+            app:enterAnim="@anim/enter_from_right"
+            app:exitAnim="@anim/exit_to_left"
+            app:popEnterAnim="@anim/enter_from_left"
+            app:popExitAnim="@anim/exit_to_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.rithikjain.projectgists.ui.profile.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/editGistFragment"
+        android:name="com.rithikjain.projectgists.ui.gists.EditGistFragment"
+        android:label="fragment_edit_gist"
+        tools:layout="@layout/fragment_edit_gist" >
+        <argument
+            android:name="gistid"
+            app:argType="string"
+            android:defaultValue=" " />
+        <argument
+            android:name="filename"
+            app:argType="string"
+            android:defaultValue=" " />
+        <argument
+            android:name="description"
+            app:argType="string"
+            android:defaultValue=" " />
+        <argument
+            android:name="code"
+            app:argType="string"
+            android:defaultValue=" " />
+        <action
+            android:id="@+id/action_editGistFragment_to_codeFragment"
+            app:destination="@id/codeFragment"
+            app:enterAnim="@anim/enter_from_right"
+            app:exitAnim="@anim/exit_to_left"
+            app:popEnterAnim="@anim/enter_from_left"
+            app:popExitAnim="@anim/exit_to_right" />
+        <action
+            android:id="@+id/action_editGistFragment_to_gistsFragment"
+            app:destination="@id/gistsFragment"
+            app:popUpTo="@id/gistsFragment"
+            app:popUpToInclusive="true"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
+    </fragment>
+</navigation>

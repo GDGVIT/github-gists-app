@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Easy Gists</string>
+    <string name="internet_error">Network called failed with message Unable to resolve host \"gists-api.herokuapp.com\": No address associated with hostname</string>
+</resources>
